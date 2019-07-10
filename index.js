@@ -4,13 +4,8 @@ import './index.css';
 
 function Square(props) { 
     return (
-      // Note: () => syntax used below removes the need to use function() syntax
-      <button 
-        className="square" 
-        onClick = {props.onClick}
-      >   
+      <button className="square" onClick = {props.onClick}>   
        {props.value}
-      
       </button>
     );
   }
@@ -59,12 +54,11 @@ class Game extends React.Component {
     };
   }
 
-   handleClick(i) {
+  handleClick(i) {
       const history = this.state.history;
       const current = history[history.length - 1];
       const squares = current.squares.slice();
-      if(calculateWinner(squares) || squares[i])
-      {
+      if(calculateWinner(squares) || squares[i]){
         return;
       }
       squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -83,14 +77,12 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     let status;
-
     if(winner) {
-
       status = "Winner: " + winner;
     } else {
-
       status = "Next Player: " + (this.state.xIsNext ? 'X' : 'O');
     }
+    
     return (
       <div className="game">
         <div className="game-board">
